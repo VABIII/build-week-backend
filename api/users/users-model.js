@@ -1,4 +1,4 @@
-const db = require('./data/db-config');
+const db = require('../data/db-config');
 
 
 function getAllUsers() { return db('users') }
@@ -11,7 +11,12 @@ async function insertUser(user) {
     return newUserObject // { user_id: 7, username: 'foo', password: 'xxxxxxx' }
 }
 
+const getUserById = user_id => {
+    return db('users')
+        .select('user_id', 'username', 'role')
+        .where('user_id', user_id)
 
+}
 
 
 
@@ -19,7 +24,8 @@ async function insertUser(user) {
 
 module.exports = {
     getAllUsers,
-    insertUser
+    insertUser,
+    getUserById,
 }
 
 
