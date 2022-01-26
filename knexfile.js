@@ -15,7 +15,7 @@ require('dotenv').config()
     - testing_database_name (use the real name of the testing database you created in pgAdmin 4)
 
 */
-const pg = require('pg')
+const pg = require('pg') // Needed in order to be able to run a postgres db
 
 if (process.env.DATABASE_URL) {
   pg.defaults.ssl = { rejectUnauthorized: false }
